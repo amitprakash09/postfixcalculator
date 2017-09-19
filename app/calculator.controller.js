@@ -13,7 +13,7 @@ calculatorApp.controller('CalculatorController', function ($scope) {
         $scope.flag = false;
         var patern = /[a-z]/g;
         var result = expression.match(patern);
-
+        expression = expression.split(" ");
         var countoperand = 0;
         var countoperator = 1;
         $scope.calculatedValue = "";
@@ -23,6 +23,7 @@ calculatorApp.controller('CalculatorController', function ($scope) {
             return;
         }
         for (i = 0; i < expression.length; i++) {
+
             if ((!(isNaN(expression[i]))) && (expression[i] != " ")) {
                 countoperand++;
 
@@ -32,9 +33,11 @@ calculatorApp.controller('CalculatorController', function ($scope) {
                 countoperator++;
             }
         }
+
         if (countoperand == countoperator) {
 
         }
+
         else {
 
             $scope.message = "Please enter some valid post fix expression";
@@ -45,7 +48,7 @@ calculatorApp.controller('CalculatorController', function ($scope) {
         }
 
 
-        expression = expression.split(" ");
+
         var array = new Array();
 
 
@@ -59,14 +62,15 @@ calculatorApp.controller('CalculatorController', function ($scope) {
         }
         $scope.flag = false;
         $scope.message = "Expression is valid";
+
         $scope.calculated = $scope.calculate(expression);
-        
+
 
     };
 
     $scope.calculate = function (expression) {
         var array = new Array();
-        //$scope.flag = false;
+
 
         for (i in expression) {
 
