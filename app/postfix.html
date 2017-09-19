@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app="calculatorApp">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Postfix Calc</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="calculator.controller.js"></script>
+        
+    </head>
+    
+    <body>
+    
+        <div ng-controller="CalculatorController">       
+            <label> Please enter an expression such as "23 4 + 45 -"</label>
+            <input type="text"  ng-model="userInput" />
+            <button ng-click='calculator(userInput)' class="btn btn-success">Click here to calculate</button>
+            <p ng-if='flag' style="color: red">{{message}}</p>
+            <p ng-if='!flag'>The value of the postfix expression is {{calculatedValue}}</p>
+        </div>    
+        </body>
+</html>
